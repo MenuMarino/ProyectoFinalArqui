@@ -1,0 +1,12 @@
+-Columna1y2 (tb1.v)
+Este ejecutable imprime los dos operando que entran al ALU y el resultado. Instrucciones = add, sub, and, nor, or, slt, addi, subi, andi, ori y slti.
+
+-Columna3 (tb2.v)
+Este ejecutable imprime el opcode de la instruccion, los 2 inputs del ALU, el output del ALU y el valor de la data que se va a escribir en el register file. Instrucciones = (siguiendo las de Columna1y2), sb, sh, sw, lui, lb, lh y lw.
+
+-Columna4 (tb3.v)
+Este ejecutable imprime el opcode de la instruccion, el output del ALU que sirve para decidir si es que se va a realizar un salto o no, el offset que se toma cuando es una instruccion de jump, el offset de las instrucciones de branches y el output "$ra" representa el write data del register file, se usa para escribir en el registro $ra que se utiliza en la instruccion de jal. Instrucciones = (siguiendo las de Columna3), beq, bneq, bgez, addi, j, jal, jr y or.
+
+Si se desea que los ejecutables impriman en decimal, se le debe cambiar en el tb correspondiente. En el monitor que se encuentra al final, se le cambia el "%b" por "%d". Para compilar se usa el siguiente comando:
+
+iverilog -o NombreDelEjecutable add_4.v alu.v alu_mux.v alucontrol.v control.v data_memory.v instruction_memory.v branch_mux.v jump_adder.v jump_and.v jump_mux.v pc.v reg_file.v reg_file_mux.v sign_extend.v write_back_mux.v TbCorrespondiente
